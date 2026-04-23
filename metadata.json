@@ -1,0 +1,8 @@
+{
+  "name": "777 Market",
+  "description": "A highly modern, user-centric e-commerce website for groceries and household products featuring AI recommendations, voice search, and live order tracking.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
