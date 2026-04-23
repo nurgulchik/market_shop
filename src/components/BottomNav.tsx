@@ -33,11 +33,11 @@ export default function BottomNav() {
                 <div className={`p-1 transition-colors ${isActive ? 'text-emerald-500' : 'text-[var(--muted-text)]'}`}>
                   <Icon size={24} strokeWidth={isActive ? 2.5 : 2} />
                 </div>
-                {totalItems > 0 && (
+
                   <span className="absolute top-0 right-1/2 translate-x-4 -mt-1 w-4 h-4 bg-emerald-500 text-white text-[8px] font-black flex items-center justify-center rounded-full border border-[var(--bg-color)]">
                     {totalItems}
                   </span>
-                )}
+
                 <span className="text-[10px] font-black uppercase tracking-widest leading-none scale-75 origin-top">
                   {item.label}
                 </span>

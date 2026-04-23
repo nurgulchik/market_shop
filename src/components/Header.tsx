@@ -160,11 +160,9 @@ export default function Header() {
                 className="relative w-12 h-12 md:w-14 md:h-14 ml-2 rounded-2xl bg-[var(--text-color)] text-[var(--bg-color)] hover:scale-105 active:scale-95 transition-transform flex items-center justify-center group shadow-xl"
               >
                 <ShoppingCart size={24} className="transition-transform group-hover:-rotate-12" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 w-6 h-6 flex items-center justify-center bg-emerald-500 text-white text-[10px] font-black rounded-full border-2 border-[var(--bg-color)]">
-                    {totalItems}
-                  </span>
-                )}
+                <span className="absolute -top-1 -right-1 w-6 h-6 flex items-center justify-center bg-emerald-500 text-white text-[10px] font-black rounded-full border-2 border-[var(--border-color)]">
+                  {totalItems}
+                </span>
               </button>
             </div>
           </div>

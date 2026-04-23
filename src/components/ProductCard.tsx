@@ -14,7 +14,12 @@ interface ProductCardProps {
 export default function ProductCard({ product, onQuickView }: ProductCardProps) {
   const { t } = useTranslation();
   const addItem = useCartStore((state) => state.addItem);
+  const cartItems = useCartStore((state) => state.items);
   const [isAdded, setIsAdded] = useState(false);
+
+  const cartItem = cartItems.find(item => item.id === product.id);
+  const isInCart = !!cartItem;
+  const quantity = cartItem?.quantity || 0;
 
   const discountedPrice = product.discount 
     ? product.price * (1 - product.discount / 100) 
@@ -24,7 +29,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
     e.stopPropagation();
     addItem(product);
     setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
+    setTimeout(() => setIsAdded(false), 1000);
   };
 
   return (
@@ -103,14 +108,24 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
                 >
                   <Check size={24} className="text-white" strokeWidth={4} />
                 </motion.div>
+              ) : isInCart ? (
+                <motion.div
+                  key="quantity"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0 }}
+                  className="flex items-center justify-center font-black text-white text-lg"
+                >
+                  {quantity}+
+                </motion.div>
               ) : (
                 <motion.div
-                  key="plus"
+                  key="cart"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   exit={{ scale: 0 }}
                 >
-                  <Plus size={24} className="text-white" strokeWidth={4} />
+                  <ShoppingCart size={24} className="text-white" strokeWidth={3} />
                 </motion.div>
               )}
             </AnimatePresence>

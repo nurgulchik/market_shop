@@ -1,4 +1,4 @@
-import { X, Star, ShieldCheck, Truck, Plus, Minus, Check } from 'lucide-react';
+import { X, Star, ShieldCheck, Truck, Plus, Minus, Check, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Product } from '../data/mockData';
 import { useCartStore } from '../store/useCartStore';
@@ -134,7 +134,10 @@ export default function ProductQuickView({ product, onClose }: Props) {
                  {added ? (
                    <><Check size={28} strokeWidth={4} /> {t('added_to_cart') || 'Added!'}</>
                  ) : (
-                   `${t('add_to_cart')} - ${(discountedPrice * quantity).toFixed(2)}`
+                   <>
+                     <ShoppingCart size={24} strokeWidth={3} />
+                     {t('add_to_cart')} - ${(discountedPrice * quantity).toFixed(2)}
+                   </>
                  )}
                </button>
             </div>
